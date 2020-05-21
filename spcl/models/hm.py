@@ -38,8 +38,8 @@ class HM(autograd.Function):
         # momentum update
         for y in centers.keys():
             x = centers[y]/nums[y]
-            ctx.lut[y] = ctx.momentum * ctx.lut[y] + (1. - ctx.momentum) * x
-            ctx.lut[y] /= ctx.lut[y].norm()
+            ctx.features[y] = ctx.momentum * ctx.features[y] + (1. - ctx.momentum) * x
+            ctx.features[y] /= ctx.features[y].norm()
 
         return grad_inputs, None, None, None
 
